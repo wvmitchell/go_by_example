@@ -12,5 +12,6 @@ func main() {
   fmt.Println(true && false)
   fmt.Println(true && true)
   fmt.Println(false || true)
+  fmt.Println(!true)
 
 }
