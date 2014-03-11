@@ -16,19 +16,19 @@ type circle struct {
   radius float64
 }
 
-func (s square) area() float64 {
+func (s *square) area() float64 {
   return s.width * s.height
 }
 
-func (s square) perim() float64 {
+func (s *square) perim() float64 {
   return s.width*2 + s.height*2
 }
 
-func (c circle) area() float64 {
+func (c *circle) area() float64 {
   return math.Pi * math.Pow(c.radius, 2)
 }
 
-func (c circle) perim() float64 {
+func (c *circle) perim() float64 {
   return 2 * math.Pi * c.radius
 }
 
@@ -39,8 +39,8 @@ func measure(g geometery) {
 }
 
 func main() {
-  c := circle{5.0}
-  s := square{10, 21}
+  c := &circle{5.0}
+  s := &square{10, 21}
 
   measure(c)
   measure(s)
