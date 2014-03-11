@@ -15,3 +15,11 @@ type square struct {
 type circle struct {
   radius float64
 }
+
+func (s *square) area() float64 {
+  return s.width * s.height
+}
+
+func (s *square) perim() float64 {
+  return s.width*2 + s.height*2
+}
