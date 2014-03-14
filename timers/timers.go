@@ -12,4 +12,15 @@ func main(){
 
 
   timer2 := time.NewTimer(time.Second)
+
+  go func(){
+    <-timer2.C
+    fmt.Println("Timer 2 expired")
+  }()
+
+  stop := false
+  //stop := timer2.Stop()
+  if stop {
+    fmt.Println("Timer 2 stopped")
+  }
 }
