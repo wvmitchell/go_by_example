@@ -25,7 +25,6 @@ func main() {
         key := rand.Intn(5)
         mutex.Lock()
         total += state[key]
-        fmt.Println("mutex:", mutex)
         mutex.Unlock()
         atomic.AddInt64(&ops, 1)
 
