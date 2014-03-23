@@ -17,3 +17,11 @@ type writeOp struct {
   val int
   resp chan bool
 }
+
+func main() {
+
+  var ops int64 = 0;
+
+  reads := make(chan *readOp)
+  writes := make(chan *writeOp)
+}
