@@ -30,7 +30,7 @@ func main() {
 
     for {
       select {
-        case read := <-reads: 
+        case read := <-reads:
           read.resp <- state[read.key]
         case writes := <-writes:
           state[write.key] = write.val
@@ -53,4 +53,24 @@ func main() {
       }
     }
   }
+
+  for w := 0; w < 10; w++ {
+    go func(){
+      for {
+        write := &writeOp{
+          key: rand.Intn(5),
+          val: rand.Intn(100),
+          resp: make(chan bool)}
+
+        writes <- write
+        <-write.resp
+        atomic.AddInt64(&ops, 1)
+      }
+    }
+  }
+
+  time.Sleep(time.Second)
+
+  opsFinal := atomic.LoadInt64(&ops)
+  fmt.Println("ops:", opsFinal)
 }
