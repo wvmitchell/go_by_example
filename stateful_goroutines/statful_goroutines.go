@@ -39,4 +39,18 @@ func main() {
       }
     }
   }
+
+  for r := 0; r < 100; r++ {
+    go func() {
+      for {
+        read := &readOp{
+          key: rand.Intn(5),
+          resp: make(chan int)}
+
+        reads <- read
+        <-read.resp
+        atomic.AddInt64(&ops, 1)
+      }
+    }
+  }
 }
