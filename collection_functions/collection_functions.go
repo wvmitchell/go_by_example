@@ -35,6 +35,7 @@ func Any(vs []string, f func(string) bool) bool {
   return false
 }
 
+// Function to return true if all in collection satisfy predicate f
 func All(vs []string, f func(string) bool) bool {
   for _, v := range vs {
     if !f(v) {
@@ -42,6 +43,16 @@ func All(vs []string, f func(string) bool) bool {
     }
   }
   return true
+}
+
+// Function returns new slice of all elements which satisfy precicate f
+func Filter(vs []string, f func(string) bool) (rs []string) {
+  for _, v := range vs {
+    if f(v) {
+      rs = append(rs, v)
+    }
+  }
+  return rs
 }
 
 func main() {
@@ -56,6 +67,10 @@ func main() {
 
   fmt.Println(All(words, func(v string) bool {
     return strings.ToLower(v) == v
+  }))
+
+  fmt.Println(Filter(words, func(v string) bool {
+    return strings.Contains(v, "e")
   }))
 
 }
