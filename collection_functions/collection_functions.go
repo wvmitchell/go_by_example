@@ -55,6 +55,14 @@ func Filter(vs []string, f func(string) bool) (rs []string) {
   return rs
 }
 
+// Function returns new slice of elements which result after applying function f
+func Collect(vs []string, f func(string) string) (rs []string) {
+  for _, v := range vs {
+    rs = append(rs, f(v))
+  }
+  return rs
+}
+
 func main() {
   words := strings.Split("the quick brown fox jumps over the lazy dog", " ")
   fmt.Println(Index(words, "fox"))
@@ -73,4 +81,7 @@ func main() {
     return strings.Contains(v, "e")
   }))
 
+  fmt.Println(Collect(words, func(v string) string {
+    return strings.ToUpper(v)
+  }))
 }
