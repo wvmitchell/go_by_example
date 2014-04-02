@@ -25,9 +25,37 @@ func Include(vs []string, t string) bool {
   return false
 }
 
+// Function to return true if any in collection satisfy predicate f
+func Any(vs []string, f func(string) bool) bool {
+  for _, v := range vs {
+    if f(v) {
+      return true
+    }
+  }
+  return false
+}
+
+func All(vs []string, f func(string) bool) bool {
+  for _, v := range vs {
+    if !f(v) {
+      return false
+    }
+  }
+  return true
+}
+
 func main() {
-  words := strings.Split("The quick brown fox jumps over the lazy dog", " ")
+  words := strings.Split("the quick brown fox jumps over the lazy dog", " ")
   fmt.Println(Index(words, "fox"))
   fmt.Println(Include(words, "boat"))
   fmt.Println(Include(words, "brown"))
+
+  fmt.Println(Any(words, func(v string) bool {
+    return len(v) == 40
+  }))
+
+  fmt.Println(All(words, func(v string) bool {
+    return strings.ToLower(v) == v
+  }))
+
 }
