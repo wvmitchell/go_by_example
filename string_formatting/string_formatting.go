@@ -2,7 +2,7 @@ package main
 
 import (
   "fmt"
-  //"os"
+  "os"
 )
 
 var pf = fmt.Printf
@@ -64,4 +64,30 @@ func main(){
   // => 686578
   pf("%x\n", "hex")
 
+  // pointer representation
+  pf("%p\n", &p)
+
+  // => |    12|   234|
+  pf("|%6d|%6d|\n", 12, 234)
+
+  // right justify
+  // => |12.300| 1.300|
+  pf("|%6.3f|%6.3f|\n", 12.3, 1.3)
+
+  // left justify
+  // => |12.300|1.300 |
+  pf("|%-6.3f|%-6.3f|\n", 12.3, 1.3)
+
+  // similar with strings
+  // => |   foo|   bar|
+  pf("|%6s|%6s|\n", "foo", "bar")
+
+  // => |foo   |bar   |
+  pf("|%-6s|%-6s|\n", "foo", "bar")
+
+
+  s := fmt.Sprintf("a %s\n", "string")
+  pf(s)
+
+  fmt.Fprintf(os.Stderr, "an %s\n", "error")
 }
