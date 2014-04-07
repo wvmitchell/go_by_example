@@ -15,7 +15,7 @@ type Response1 struct {
 
 type Response2 struct {
   Page int          `json:"page"`
-  Fruits []string   `json:"fruits"`
+  Fruits []string   `json:"frutitas"`
 }
 
 func main() {
@@ -41,4 +41,11 @@ func main() {
     Fruits:  []string{"peach", "pear", "apple", "bananna"}}
   res1B, _ := json.Marshal(res1D)
   fp(string(res1B))
+
+
+  res2D := &Response2 {
+    Page:  1,
+    Fruits: []string{"peach", "pear", "apple", "bananna"}}
+  res2B, _ := json.Marshal(res2D)
+  fp(string(res2B))
 }
