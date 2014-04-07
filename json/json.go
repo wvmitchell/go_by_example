@@ -26,4 +26,7 @@ func main() {
   intB, _ := json.Marshal(1)
   fp(string(intB))
 
+  fltB, _ := json.Marshal(12.334)
+  fp(string(fltB))
+
 }
