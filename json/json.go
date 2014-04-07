@@ -3,7 +3,7 @@ package main
 import (
   "encoding/json"
   "fmt"
-  //"os"
+  "os"
 )
 
 var fp = fmt.Println
@@ -80,4 +80,8 @@ func main() {
   json.Unmarshal([]byte(str), &res)
   fp(res)
   fp(res.Fruits[0])
+
+  enc := json.NewEncoder(os.Stdout)
+  d := map[string]int{"apple": 1, "peach": 3}
+  enc.Encode(d)
 }
