@@ -6,6 +6,8 @@ import (
   //"os"
 )
 
+var fp = fmt.Println
+
 type Response1 struct {
   Page int
   Fruits []string
@@ -19,6 +21,6 @@ type Response2 struct {
 func main() {
 
   bolB, _ := json.Marshal(true)
-  fmt.Println(string(bolB))
+  fp(string(bolB))
 
 }
