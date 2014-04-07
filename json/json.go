@@ -29,4 +29,7 @@ func main() {
   fltB, _ := json.Marshal(12.334)
   fp(string(fltB))
 
+  strB, _ := json.Marshal("not a beaver, but a gopher")
+  fp(string(strB))
+
 }
