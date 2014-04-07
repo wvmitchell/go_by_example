@@ -20,6 +20,8 @@ type Response2 struct {
 
 func main() {
 
+  // enconding json
+
   bolB, _ := json.Marshal(true)
   fp(string(bolB))
 
@@ -48,4 +50,20 @@ func main() {
     Fruits: []string{"peach", "pear", "apple", "bananna"}}
   res2B, _ := json.Marshal(res2D)
   fp(string(res2B))
+
+
+  // Now for decoding
+
+  byt := []byte(`{"num":2.34,"strs":["a","b"]}`)
+  var dat map[string]interface{}
+
+  if err := json.Unmarshal(byt, &dat); err != nil {
+    panic(err)
+  }
+  fp(dat)
+
+  // need to cast accessed values to their appropriate type for use
+  num := dat["num"].(float64)
+  num = num + 1
+  fp(num)
 }
