@@ -32,6 +32,10 @@ func main() {
   strB, _ := json.Marshal("not a beaver, but a gopher")
   fp(string(strB))
 
+  mapD := map[string]int{"apple": 1, "peach": 4}
+  mapB, _ := json.Marshal(mapD)
+  fp(string(mapB))
+
   res1D := &Response1 {
     Page: 1,
     Fruits:  []string{"peach", "pear", "apple", "bananna"}}
