@@ -23,4 +23,7 @@ func main() {
   bolB, _ := json.Marshal(true)
   fp(string(bolB))
 
+  intB, _ := json.Marshal(1)
+  fp(string(intB))
+
 }
