@@ -15,7 +15,7 @@ type Response1 struct {
 
 type Response2 struct {
   Page int          `json:"page"`
-  Fruits []string   `json:"frutitas"`
+  Fruits []string   `json:"fruits"`
 }
 
 func main() {
@@ -66,4 +66,18 @@ func main() {
   num := dat["num"].(float64)
   num = num + 1
   fp(num)
+
+
+  // nested values require series of casts
+  strs := dat["strs"].([]interface{})
+  str1 := strs[0].(string)
+  fp(str1)
+
+  // it's also possible to decode json into a custom datatype
+  str := `{"page": 1, "fruits": ["apple", "peach"]}`
+  res := &Response2{}
+
+  json.Unmarshal([]byte(str), &res)
+  fp(res)
+  fp(res.Fruits[0])
 }
