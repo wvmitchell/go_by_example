@@ -5,7 +5,10 @@ import (
   "fmt"
 )
 
-var p = fmt.Println
-
 func main() {
+  p := fmt.Println
+
+  t := time.Now()
+
+  p(t)
 }
