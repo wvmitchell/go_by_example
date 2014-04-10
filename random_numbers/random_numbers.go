@@ -9,4 +9,6 @@ func main() {
 
   p := fmt.Println
 
+  p(rand.Intn(100))
+
 }
