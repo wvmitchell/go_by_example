@@ -15,4 +15,7 @@ func main() {
   p(rand.Float64())
   p(rand.Float64())
 
+  p(rand.Float64()+5)
+  p(rand.Float64()*5+5)
+
 }
