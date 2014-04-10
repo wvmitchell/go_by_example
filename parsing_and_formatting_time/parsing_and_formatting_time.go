@@ -23,4 +23,13 @@ func main() {
     t.Year(), t.Month(), t.Day(),
     t.Hour(), t.Minute(), t.Second(),
   )
+
+  // time parsing
+  withNanos := "2006-01-02T15:04:05.999999999-07:00"
+  t1, _ := time.Parse(withNanos, "2012-11-01T22:08:41.117442+00:00")
+  p(t1)
+
+  digital := "3:04PM"
+  t2, _ := time.Parse(digital, "8:05PM")
+  p(t2)
 }
