@@ -32,7 +32,9 @@ func main() {
   p()
 
   // new rand, with same seed, same output
-
-
+  s2 := rand.NewSource(50)
+  r2 := rand.New(s2)
+  p(r2.Intn(100))
+  p(r2.Intn(100))
 
 }
