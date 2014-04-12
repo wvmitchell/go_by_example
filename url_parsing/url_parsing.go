@@ -33,4 +33,8 @@ func main() {
   p(h[0])
   p(h[1])
 
+  // extract path and fragment
+  p("path:", u.Path)
+  p("fragment:", u.Fragment)
+
 }
