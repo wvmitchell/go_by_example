@@ -37,4 +37,12 @@ func main() {
   p("path:", u.Path)
   p("fragment:", u.Fragment)
 
+  // extract query
+  p("raw query:", u.RawQuery)
+
+  // parse query into a map
+  m, _ := url.ParseQuery(u.RawQuery)
+  p("query map:", m)
+  p("single value:", m["k"][0])
+
 }
