@@ -3,7 +3,7 @@ package main
 import (
   "fmt"
   "net/url"
-  //"strings"
+  "strings"
 )
 
 func main() {
@@ -20,5 +20,17 @@ func main() {
 
   p("url:", u)
   p("scheme:", u.Scheme)
+  p("user:", u.User)
+  p("username:", u.User.Username())
+
+  pw, _ := u.User.Password()
+  p("password:", pw)
+
+  p("host:", u.Host)
+
+  // split on ':' to extract port
+  h := strings.Split(u.Host, ":")
+  p(h[0])
+  p(h[1])
 
 }
