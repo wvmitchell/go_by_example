@@ -23,11 +23,8 @@ func main() {
 
 
   // same pattern for MD5 hashes
-
   hs := md5.New()
-
   hs.Write([]byte(s))
-
   ms := hs.Sum(nil)
   fmt.Printf("%x\n", ms)
 
