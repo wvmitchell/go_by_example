@@ -5,7 +5,7 @@ import (
   "fmt"
   //"io"
   "io/ioutil"
-  //"os"
+  "os"
 )
 
 func check(e error) {
@@ -17,8 +17,18 @@ func check(e error) {
 func main() {
   p := fmt.Println
 
+  // read file
   dat, err := ioutil.ReadFile("/tmp/dat")
   check(err)
   p(string(dat))
+
+
+  // open file
+  file, err := os.Open("/tmp/dat")
+
+  b1 := make([]byte, 5)
+  n1, err := file.Read(b1)
+  check(err)
+  p("%d bytes: %s\n", b1, string(n1))
 }
 
