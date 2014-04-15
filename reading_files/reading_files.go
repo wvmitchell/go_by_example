@@ -1,16 +1,24 @@
 package main
 
 import (
-  "bufio"
+  //"bufio"
   "fmt"
-  "io"
+  //"io"
   "io/ioutil"
-  "os"
+  //"os"
 )
 
 func check(e error) {
   if e != nil {
     panic(e)
   }
+}
+
+func main() {
+  p := fmt.Println
+
+  dat, err := ioutil.ReadFile("/tmp/dat")
+  check(err)
+  p(string(dat))
 }
 
