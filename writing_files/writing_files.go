@@ -38,6 +38,9 @@ func main() {
   check(err)
   fmt.Printf("Wrote %d bytes\n", n3)
 
+  // flush writes to stable storage
+  f.Sync()
+
 
 
 }
