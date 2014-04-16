@@ -30,7 +30,13 @@ func main() {
   // writing bytes to a file
   d2 := []byte{115, 111, 109, 101, 10}
   n2, err := f.Write(d2)
+  check(err)
   fmt.Printf("Wrote %d bytes\n", n2)
+
+  // it's also possible to write a string
+  n3, err := f.WriteString("and some more")
+  check(err)
+  fmt.Printf("Wrote %d bytes\n", n3)
 
 
 
