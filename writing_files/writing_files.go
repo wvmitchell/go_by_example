@@ -34,7 +34,7 @@ func main() {
   fmt.Printf("Wrote %d bytes\n", n2)
 
   // it's also possible to write a string
-  n3, err := f.WriteString("and some more")
+  n3, err := f.WriteString("and even more")
   check(err)
   fmt.Printf("Wrote %d bytes\n", n3)
 
