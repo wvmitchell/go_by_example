@@ -1,7 +1,7 @@
 package main
 
 import (
-  //"bufio"
+  "bufio"
   "fmt"
   "io/ioutil"
   "os"
@@ -34,13 +34,20 @@ func main() {
   fmt.Printf("Wrote %d bytes\n", n2)
 
   // it's also possible to write a string
-  n3, err := f.WriteString("and even more")
+  n3, err := f.WriteString("and even more\n")
   check(err)
   fmt.Printf("Wrote %d bytes\n", n3)
 
   // flush writes to stable storage
   f.Sync()
 
+  // buffered writers
+  w := bufio.NewWriter(f)
+  n4, err := w.WriteString("buffered\n")
+  check(err)
+  fmt.Printf("Wrote %d bytes\n", n4)
 
+  // ensure all underlying operations have been applied to the writer
+  w.Flush()
 
 }
