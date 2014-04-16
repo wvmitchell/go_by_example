@@ -29,6 +29,6 @@ func main() {
   b1 := make([]byte, 5)
   n1, err := file.Read(b1)
   check(err)
-  p("%d bytes: %s\n", b1, string(n1))
+  fmt.Printf("%d bytes: %s\n", n1, string(b1))
 }
 
