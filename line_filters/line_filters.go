@@ -24,4 +24,6 @@ func main() {
     os.Exit(1)
   }
 
+  // echo hello | go run line_filters.go
+
 }
