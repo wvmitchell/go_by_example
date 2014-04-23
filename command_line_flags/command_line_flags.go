@@ -12,8 +12,14 @@ func main() {
 
   numPtr := flag.Int("num", 45, "an int")
 
+  boolPtr := flag.Bool("fork", false, "a bool")
+
   flag.Parse()
 
-  fmt.Println("wordPtr", *wordPtr)
-  fmt.Println("numPtr", *numPtr)
+  // only print if boolPtr has been set to true
+  if *boolPtr {
+    fmt.Println("wordPtr", *wordPtr)
+    fmt.Println("numPtr", *numPtr)
+    fmt.Println("fork", *boolPtr)
+  }
 }
