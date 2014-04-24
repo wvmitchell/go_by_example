@@ -3,7 +3,7 @@ package main
 import (
   "os"
   "fmt"
-  //"strings"
+  "strings"
 )
 
 func main() {
@@ -15,4 +15,10 @@ func main() {
 
   // can use export BAR=5 prior to running program
   p("BAR", os.Getenv("BAR"))
+  p()
+
+  for _, env := range os.Environ() {
+    pair := strings.Split(env, "=")
+    p(pair[0])
+  }
 }
