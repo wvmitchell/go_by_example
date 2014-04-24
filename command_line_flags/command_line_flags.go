@@ -14,6 +14,9 @@ func main() {
 
   boolPtr := flag.Bool("fork", false, "a bool")
 
+  var svar string
+  flag.StringVar(&svar, "svar", "bar", "a string var")
+
   flag.Parse()
 
   // only print if boolPtr has been set to true
@@ -22,4 +25,7 @@ func main() {
     fmt.Println("numPtr", *numPtr)
     fmt.Println("fork", *boolPtr)
   }
+
+  fmt.Println("svar:", svar)
+  fmt.Println("tail:", flag.Args())
 }
