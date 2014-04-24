@@ -12,4 +12,5 @@ func main() {
 
   os.Setenv("FOO", "1")
   p("FOO", os.Getenv("FOO"))
+  p("BAR", os.Getenv("BAR"))
 }
