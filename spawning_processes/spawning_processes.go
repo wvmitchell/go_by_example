@@ -41,4 +41,13 @@ func main() {
 
   p("> grep")
   p(string(grepBytes))
+
+  // spawning full command with string needs -c
+  bashCmd := exec.Command("bash", "-c", "ls -la")
+  lsOut, err := bashCmd.Output()
+  if err != nil {
+    panic(err)
+  }
+  p("> ls -la")
+  p(string(lsOut))
 }
