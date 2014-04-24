@@ -8,8 +8,8 @@ import (
 
 func main() {
 
-  var p = fmt.Prinln
+  var p = fmt.Println
 
   os.Setenv("FOO", "1")
-  p("FOO", os.Getenv("FOO")
+  p("FOO", os.Getenv("FOO"))
 }
