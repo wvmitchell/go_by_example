@@ -12,5 +12,7 @@ func main() {
 
   os.Setenv("FOO", "1")
   p("FOO", os.Getenv("FOO"))
+
+  // can use export BAR=5 prior to running program
   p("BAR", os.Getenv("BAR"))
 }
